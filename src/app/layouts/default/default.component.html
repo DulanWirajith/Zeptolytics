@@ -1,0 +1,22 @@
+<app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+<mat-drawer-container>
+    <mat-drawer mode="side" opened>
+        <app-side-nav></app-side-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+        <!-- <div id="hp-ctn-howItWorks">
+            <img src="~/Content/images/ui-symb-arrow-left-white-15x15.png" width="15" height="15" />
+            <p>Widgets Bar</p>
+        </div> -->
+
+        <div id="widgets-bar" (click)="sideBarToggler()">
+            <p>Widgets Bar</p>
+            <!-- <img src="~/Content/images/ui-symb-arrow-left-white-15x15.png" width="15" height="15" /> -->
+        </div>
+        <!-- <button mat-button style="position: absolute;right: 20px; top: 50%; z-index: 20;" (click)="sideBarToggler()">Widgets</button> -->
+    </mat-drawer-content>
+    <mat-drawer mode="over" [opened]="widgetbarOpen" position="end" style="width: 38%;background-color: rgba(22, 21, 21, 0.671);">
+        <app-widget-bar></app-widget-bar>
+    </mat-drawer>
+</mat-drawer-container>

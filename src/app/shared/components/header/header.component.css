@@ -1,0 +1,96 @@
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 250px;
+    z-index: 1030;
+}
+
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: rgb(80, 113, 153);
+    font-size: 0.5rem;
+    font-weight: 200;
+}
+
+a {
+    background-color: rgb(80, 113, 153);
+    color: rgb(255, 255, 255);
+    padding: 4px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 300;
+    border-radius: 50px;
+    margin-left: 10px;
+}
+
+.vsNav {
+    background-color: rgb(142, 160, 182);
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+    /* color: rgba(245, 245, 245, 0.705); */
+}
+
+a:hover,
+a:active {
+    background-color: rgba(255, 255, 255, 0.609);
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0rem;
+    margin-left: 10px;
+    /* padding-right: 1.3rem; */
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    /* padding-right: 1.3rem; */
+    padding-left: 10px;
+}
+
+.dot {
+    height: 35px;
+    width: 35px;
+    background-color: rgba(255, 255, 255, 0.842);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+span.dot1 {
+    position: relative;
+    left: 4px;
+    top: 20px;
+    /* border: 1px solid #73AD21; */
+}
+
+span.dot2 {
+    position: relative;
+    left: -5px;
+    top: 20px;
+    /* border: 1px solid #73AD21; */
+}
+
+span.dot3 {
+    position: relative;
+    left: -66px;
+    top: 0px;
+    /* border: 1px solid #73AD21; */
+}
+
+span.dot4 {
+    position: relative;
+    left: -75px;
+    top: 0px;
+    /* border: 1px solid #73AD21; */
+}
+
+span.dot5 {
+    position: relative;
+    left: -122px;
+    top: 9px;
+    background-color: rgba(0, 0, 255, 0.575);
+    /* border: 1px solid #ad2121; */
+}

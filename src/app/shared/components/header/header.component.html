@@ -1,0 +1,73 @@
+<mat-toolbar style="background-color: rgb(80, 113, 153)">
+    <mat-toolbar-row>
+        <span style="width: 100px"><span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+        <span class="dot dot4"></span>
+        <span class="dot dot5"></span>
+        </span>
+        <span style="
+        width: 180px;
+        color: whitesmoke;
+        font-size: 25px;
+        padding-top: 12px;
+      ">
+      ZEPTOLYTICS
+    </span>
+
+        <button mat-icon-button style="color: whitesmoke" (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-start">
+            <ul fxLayout="row" fxLayoutGap="0px">
+                <li class="nav-item">
+                    <button mat-icon-button style="color: whitesmoke">
+            <mat-icon>search</mat-icon>
+          </button>
+                    <!-- <a class="nav-link" href="#">
+                        <span class="material-icons" style="font-size: 26px;"> search </span>
+                    </a> -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home" routerLinkActive="vsNav">Dashboard <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Play Area</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Widgets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Templates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Data Locker</a>
+                </li>
+            </ul>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" style="width: 90%">
+            <ul fxLayout="row" fxLayoutGap="0px">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="material-icons" style="font-size: 26px; padding-top: 10px">
+              notifications_none
+            </span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="material-icons" style="font-size: 26px; padding-top: 10px">
+              account_circle
+            </span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="material-icons" style="font-size: 26px; padding-top: 10px">
+              more_vert
+            </span></a>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,227 @@
+<!-- <p>widget-bar works!</p> -->
+<!-- <mat-nav-list style="
+    background-color: rgba(109, 108, 108, 0.061);
+    height: 100%;
+    padding: 10px;
+  "> -->
+<div class="mat-list-item" style="height: 21px; padding: 10px; margin: 10px">
+    <div class="row">
+        <div class="col-md-11">
+            <input type="text" id="search-bar" placeholder="Boss, Search Here" [(ngModel)]="itemName" (input)="SearchWidgets()" />
+
+            <form class="search-container">
+                <a href="#" style="background-color: transparent" class="search-icon"><span
+            class="material-icons"
+            style="color: rgba(0, 0, 255, 0.363); font-size: 40px"
+          >
+            search
+          </span></a
+        >
+      </form>
+    </div>
+  </div>
+</div>
+<br />
+<div class="mat-list-item" style="background-color: transparent">
+  <div class="row" style="background-color: transparent">
+    <!-- [cdkDropListConnectedTo]="[widgetShowContainer]" -->
+    <div
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      class="dragdrop-list"
+      #widgetContainer="cdkDropList"
+      (cdkDropListDropped)="drophor($event)"
+      style="background-color: transparent"
+    >
+      <div
+        class="dragdrop-box"
+        *ngFor="let topic of dynamicItemTopics"
+        cdkDrag
+        style="background-color: transparent"
+      >
+        <div
+          class="card resizable horizontal"
+          style="width: 100%; background-color: rgba(255, 255, 255, 0.52)"
+          (drag)="onResize($event)"
+        >
+          <div class="card-header" style="padding: 4px 12px">
+            <div class="row">
+              <div class="col-md-10" style="text-align: left; font-size: 14px">
+                <span style="text-align: left">{{ topic }}</span>
+              </div>
+              <div class="col-md-2" style="text-align: right; font-size: 20px">
+                <!-- <span class="material-icons" style="padding-right: 10px;">  stars </span>
+                              <span class="material-icons" style="padding-right: 10px;" (click)="clicked()"> zoom_in </span> -->
+                <span class="material-icons" cdkDragHandle style="cursor: move">
+                  more_vert
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- [ngIf]="topic=='YTD Sales'" -->
+          <div
+            class="card-body"
+            style="width: 100%; align-items: center; padding: 0px"
+          >
+            <!-- <ng-template #ytdsales [ngIf]="topic=='YTD Sales'">
+                          <div class="row">
+                              <div class="col-md-2" style="text-align: center; font-size: 18px">
+                                  <span class="material-icons" style="color: green; font-size: 60px;">
+                                      arrow_drop_up
+                                      </span>
+                              </div>
+                              <div class="col-md-10" style="text-align: center; font-size: 33px; padding-top: 15px;">
+                                  <span style="text-align: left; color: grey;"> $ 128.7 Mn</span>
+                              </div>
+                          </div>
+                      </ng-template> -->
+
+            <ng-template #chartPie [ngIf]="topic == 'Sales by Location'">
+              <div class="row">
+                <apx-chart
+                  width="100%"
+                  [series]="series"
+                  [chart]="pieChartOptions.chart"
+                  [labels]="pieChartOptions.labels"
+                ></apx-chart>
+              </div>
+            </ng-template>
+
+            <ng-template #columnChart [ngIf]="topic == 'Monthly Sales'">
+              <div class="row">
+                <apx-chart
+                  [series]="columnChartOptions.series"
+                  [chart]="columnChartOptions.chart"
+                  [dataLabels]="columnChartOptions.dataLabels"
+                  [plotOptions]="columnChartOptions.plotOptions"
+                  [yaxis]="columnChartOptions.yaxis"
+                  [legend]="columnChartOptions.legend"
+                  [fill]="columnChartOptions.fill"
+                  [stroke]="columnChartOptions.stroke"
+                  [tooltip]="columnChartOptions.tooltip"
+                  [xaxis]="columnChartOptions.xaxis"
+                ></apx-chart>
+              </div>
+            </ng-template>
+
+            <ng-template #barChart [ngIf]="topic == 'Annual Sales by Gender'">
+              <div class="row">
+                <apx-chart
+                  [series]="barChartOptions.series"
+                  [chart]="barChartOptions.chart"
+                  [xaxis]="barChartOptions.xaxis"
+                ></apx-chart>
+              </div>
+            </ng-template>
+
+            <ng-template
+              #gradientLineChart
+              [ngIf]="topic == 'Monthly Sales Growth'"
+            >
+              <div class="row">
+                <apx-chart
+                  [series]="gradientChartOptions.series"
+                  [chart]="gradientChartOptions.chart"
+                  [labels]="gradientChartOptions.labels"
+                  [xaxis]="gradientChartOptions.xaxis"
+                  [fill]="gradientChartOptions.fill"
+                  [stroke]="gradientChartOptions.stroke"
+                ></apx-chart>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mat-list-item" style="padding: 10px 50px">
+  <div class="row" style="border-block-end: 1px solid white">
+    <div class="col-md-10">
+      <h2 style="color: white; margin: 0px"><small>Shared</small></h2>
+    </div>
+    <div class="col-md-2">
+      <mat-icon style="color: white"> group </mat-icon>
+    </div>
+  </div>
+</div>
+
+<div class="mat-list-item" style="background-color: transparent">
+  <div class="row" style="background-color: transparent">
+    <div
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      class="dragdrop-list"
+      (cdkDropListDropped)="drophor($event)"
+      style="background-color: transparent"
+    >
+      <div
+        class="dragdrop-box"
+        *ngFor="let topic of dynamicItemTopicsForShared"
+        cdkDrag
+        style="background-color: transparent"
+      >
+        <div
+          class="card resizable horizontal"
+          style="width: 100%; background-color: rgba(255, 255, 255, 0.52)"
+          (drag)="onResize($event)"
+        >
+          <div class="card-header" style="padding: 4px 12px">
+            <div class="row">
+              <div class="col-md-10" style="text-align: left; font-size: 14px">
+                <span style="text-align: left">{{ topic }}</span>
+              </div>
+              <div class="col-md-2" style="text-align: right; font-size: 20px">
+                <!-- <span class="material-icons" style="padding-right: 10px;">  stars </span>
+                              <span class="material-icons" style="padding-right: 10px;" (click)="clicked()"> zoom_in </span> -->
+                <span class="material-icons" cdkDragHandle style="cursor: move">
+                  more_vert
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- [ngIf]="topic=='YTD Sales'" -->
+          <div
+            class="card-body"
+            style="width: 100%; align-items: center; padding: 0px"
+          >
+            <ng-template #columnChart [ngIf]="topic == 'Sales Funnel'">
+              <div class="row">
+                <apx-chart
+                  [series]="columnChartOptions.series"
+                  [chart]="columnChartOptions.chart"
+                  [dataLabels]="columnChartOptions.dataLabels"
+                  [plotOptions]="columnChartOptions.plotOptions"
+                  [yaxis]="columnChartOptions.yaxis"
+                  [legend]="columnChartOptions.legend"
+                  [fill]="columnChartOptions.fill"
+                  [stroke]="columnChartOptions.stroke"
+                  [tooltip]="columnChartOptions.tooltip"
+                  [xaxis]="columnChartOptions.xaxis"
+                ></apx-chart>
+              </div>
+            </ng-template>
+
+            <ng-template #gradientLineChart [ngIf]="topic == 'Industry Trends'">
+              <div class="row">
+                <apx-chart
+                  [series]="gradientChartOptions.series"
+                  [chart]="gradientChartOptions.chart"
+                  [labels]="gradientChartOptions.labels"
+                  [xaxis]="gradientChartOptions.xaxis"
+                  [fill]="gradientChartOptions.fill"
+                  [stroke]="gradientChartOptions.stroke"
+                ></apx-chart>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- </mat-nav-list> -->
