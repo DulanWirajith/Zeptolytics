@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultComponent implements OnInit {
   widgetbarOpen = false;
+  widgets_bar_class="widgets-bar";
+
   constructor() {}
 
   ngOnInit(): void {}
 
   sideBarToggler() {
     this.widgetbarOpen = !this.widgetbarOpen;
+    // this.widgets_bar_class
   }
 }

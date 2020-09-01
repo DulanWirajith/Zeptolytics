@@ -64,24 +64,11 @@
             class="card-body"
             style="width: 100%; align-items: center; padding: 0px"
           >
-            <!-- <ng-template #ytdsales [ngIf]="topic=='YTD Sales'">
-                          <div class="row">
-                              <div class="col-md-2" style="text-align: center; font-size: 18px">
-                                  <span class="material-icons" style="color: green; font-size: 60px;">
-                                      arrow_drop_up
-                                      </span>
-                              </div>
-                              <div class="col-md-10" style="text-align: center; font-size: 33px; padding-top: 15px;">
-                                  <span style="text-align: left; color: grey;"> $ 128.7 Mn</span>
-                              </div>
-                          </div>
-                      </ng-template> -->
-
             <ng-template #chartPie [ngIf]="topic == 'Sales by Location'">
               <div class="row">
                 <apx-chart
                   width="100%"
-                  [series]="series"
+                  [series]="pieChartOptions.series"
                   [chart]="pieChartOptions.chart"
                   [labels]="pieChartOptions.labels"
                 ></apx-chart>

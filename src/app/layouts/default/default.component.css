@@ -27,7 +27,8 @@ mat-drawer-content {
     margin: 0px;
     width: 160px;
     height: 40px;
-    background: #FF931E;
+    /* background: #FF931E; */
+    background: rgba(22, 21, 21, 0.671);
     z-index: 60;
     border-radius: 5px 5px 0px 0px;
     -moz-transform: rotate(-90deg);
@@ -37,10 +38,32 @@ mat-drawer-content {
     transform-origin: bottom right;
     position: fixed;
     right: 10px;
+    top: 220px;
+}
+
+#widgets-bar-after-clicked {
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+    margin: 0px;
+    width: 160px;
+    height: 40px;
+    /* background: #FF931E; */
+    background: rgba(22, 21, 21, 0.671);
+    z-index: 60;
+    border-radius: 5px 5px 0px 0px;
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform-origin: bottom right;
+    position: fixed;
+    right: 10px;
+    top: 220px;
 }
 
 #widgets-bar p {
     color: #fff;
     display: inline-block;
     line-height: 40px;
+    font-size: large;
 }

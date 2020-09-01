@@ -268,8 +268,9 @@
                 </ng-template>
 
                 <ng-template #chartPie [ngIf]="topic == 'Sales by Location'">
-                    <div class="row" style="height: 250px" [hidden]="pie_chart_series.length === null">
-                        <apx-chart width="100%" [series]="pie_chart_series" [chart]="pieChartOptions.chart" [labels]="pie_chart_labels"></apx-chart>
+                    <div class="row" style="height: 250px">
+                        <apx-chart [series]="pieChartOptions.series" [chart]="pieChartOptions.chart" [labels]="pieChartOptions.labels" [responsive]="pieChartOptions.responsive"></apx-chart>
+                        <!-- <apx-chart ng-if="pie_chart_series!=null" width="100%" [series]="pie_chart_series" [chart]="pieChartOptions.chart" [labels]="pie_chart_labels"></apx-chart> -->
                     </div>
                 </ng-template>
 
