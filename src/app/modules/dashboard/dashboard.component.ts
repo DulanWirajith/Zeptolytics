@@ -39,24 +39,7 @@ export class DashboardComponent implements OnInit {
 
   // @Output() toggleSidebarForMe : EventEmitter<any> = new EventEmitter();
 
-  // heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
-
-  // todo = [
-  //   'Get to work',
-  //   'Pick up groceries',
-  //   'Buy flowers for wife',
-  //   'Go home',
-  //   'Eat dinner',
-  //   'Watch Godzilla',
-  //   'Fall asleep'
-  // ];
-
-  //   series: [
-  //     {
-  //         name: "Series 1",
-  //         data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-  //     }
-  // ];
+  
   ngOnInit(): void {
     this._chartService.get_sbl_data().subscribe((result) => {
       this.test = result.message;
@@ -302,7 +285,6 @@ export class DashboardComponent implements OnInit {
   }
 
   constructor(public dialog: MatDialog, private _chartService: ChartService) {
-    //this.set_all_sbl_data();
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -345,7 +327,7 @@ export class DashboardComponent implements OnInit {
     console.log(topic);
 
     const dialogRef = this.dialog.open(ZoomPopupDialogComponent, {
-      width: '450px',
+      width: '500px',
       data: topic,
     });
   }
@@ -354,49 +336,5 @@ export class DashboardComponent implements OnInit {
     event.target.innerWidth;
     console.log('resiezed!');
   }
-
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(ZoomPopupDialogComponent, {
-  //     width: '450px',
-  //     data: 'ZeeLot',
-  //   });
-  // }
-
-  // async getAsyncData() {
-  //   this.asyncResult = await this.httpclient.get(this.URL).toPromise();
-  //   console.log(this.asyncResult);
-  // }
-  async delay(ms: number) {
-    await new Promise((resolve) => setTimeout(() => resolve(), ms)).then(() =>
-      console.log('fired')
-    );
-  }
-  // set_all_sbl_data() {
-  //   this.test.forEach((element) => {
-  //     console.log(element.series);
-  //     this.pie_chart_labels.push(element.label);
-  //     this.pie_chart_series.push(element.series);
-  //   });
-
-  //   console.log(this.pie_chart_series);
-  //   this.delay(3000);
-
-  //   // this.test[0].label
-  // }
+  
 }
-
-//
-// title: {
-//   text: undefined,
-//   align: 'left',
-//   margin: 10,
-//   offsetX: 0,
-//   offsetY: 0,
-//   floating: false,
-//   style: {
-//     fontSize:  '14px',
-//     fontWeight:  'bold',
-//     fontFamily:  undefined,
-//     color:  '#263238'
-//   },
-// }

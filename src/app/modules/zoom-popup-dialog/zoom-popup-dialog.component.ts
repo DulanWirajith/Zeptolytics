@@ -47,7 +47,7 @@ export class ZoomPopupDialogComponent implements OnInit {
         this.pieChartOptions = {
           series: this.pie_chart_series,
           chart: {
-            width: 350,
+            width: 395,
             type: 'pie',
           },
           labels: this.pie_chart_labels,
@@ -87,7 +87,7 @@ export class ZoomPopupDialogComponent implements OnInit {
           ],
           chart: {
             // height: '440px',
-            // width: 440,
+            width: 440,
             // redrawOnParentResize: true,
             // width: '490px',
             // height:440,
@@ -166,6 +166,7 @@ export class ZoomPopupDialogComponent implements OnInit {
           ],
           chart: {
             type: 'bar',
+            width:440,
             // height: '440px',
             // width: '350px',
             toolbar: {
@@ -239,6 +240,7 @@ export class ZoomPopupDialogComponent implements OnInit {
           ],
           chart: {
             type: 'bar',
+            width:440,
           },
           plotOptions: {
             bar: {
