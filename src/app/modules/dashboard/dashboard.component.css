@@ -87,7 +87,7 @@
 /* ^_^ */
 
 .dragdrop-list {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* width: 1000px; */
     max-width: 100%;
     min-width: 100%;
@@ -142,7 +142,7 @@
 }
 
 .dragdrop-box:last-child {
-    /* border: none; */
+    border: none;
 }
 
 .dragdrop-list.cdk-drop-list-dragging .dragdrop-box:not(.cdk-drag-placeholder) {

@@ -6,6 +6,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { ZoomPopupDialogComponent } from '../zoom-popup-dialog/zoom-popup-dialog.component';
+import { ChartService } from '../services/chart.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,13 +19,14 @@ export class DashboardComponent implements OnInit {
   public gradientChartOptions;
   public columnChartOptions;
 
-  test = 'teststr';
+  test = [];
   // html_code =
   //   '<div class="row" style="height: 250px;">' +
   //   '<apx-chart width="100%" [series]="series" [chart]="pieChartOptions.chart" [labels]="pieChartOptions.labels">' +
   //   '</apx-chart>' +
   //   '</div>';
-  series = [25, 25, 25, 25, 100];
+  pie_chart_series = [];
+  pie_chart_labels = [];
 
   // @Output() toggleSidebarForMe : EventEmitter<any> = new EventEmitter();
 
@@ -47,15 +49,16 @@ export class DashboardComponent implements OnInit {
   //     }
   // ];
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private _chartService: ChartService) {
+    this.delay(5000);
     // Pie Chart
     this.pieChartOptions = {
-      series: [44, 55, 13, 43, 22],
+      // series: [44, 55, 13, 43, 22],
       chart: {
         width: 350,
         type: 'pie',
       },
-      labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+      // labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
       responsive: [
         {
           breakpoint: 480,
@@ -300,9 +303,20 @@ export class DashboardComponent implements OnInit {
         },
       },
     };
+
+    this.set_all_sbl_data();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._chartService.get_sbl_data().subscribe((result) => {
+      // this.owner_details =result.message;
+      console.log('hiii');
+      console.log(result);
+      this.test = result.message;
+      console.log(this.test[0].label);
+      this.set_all_sbl_data();
+    });
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -354,11 +368,33 @@ export class DashboardComponent implements OnInit {
     console.log('resiezed!');
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ZoomPopupDialogComponent, {
-      width: '450px',
-      data: 'ZeeLot',
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(ZoomPopupDialogComponent, {
+  //     width: '450px',
+  //     data: 'ZeeLot',
+  //   });
+  // }
+
+  // async getAsyncData() {
+  //   this.asyncResult = await this.httpclient.get(this.URL).toPromise();
+  //   console.log(this.asyncResult);
+  // }
+  async delay(ms: number) {
+    await new Promise((resolve) => setTimeout(() => resolve(), ms)).then(() =>
+      console.log('fired')
+    );
+  }
+  set_all_sbl_data() {
+    this.test.forEach((element) => {
+      console.log(element.series);
+      this.pie_chart_labels.push(element.label);
+      this.pie_chart_series.push(element.series);
     });
+
+    console.log(this.pie_chart_series);
+    this.delay(3000);
+
+    // this.test[0].label
   }
 }
 

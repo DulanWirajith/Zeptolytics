@@ -268,8 +268,8 @@
                 </ng-template>
 
                 <ng-template #chartPie [ngIf]="topic == 'Sales by Location'">
-                    <div class="row" style="height: 250px">
-                        <apx-chart width="100%" [series]="series" [chart]="pieChartOptions.chart" [labels]="pieChartOptions.labels"></apx-chart>
+                    <div class="row" style="height: 250px" [hidden]="pie_chart_series.length === null">
+                        <apx-chart width="100%" [series]="pie_chart_series" [chart]="pieChartOptions.chart" [labels]="pie_chart_labels"></apx-chart>
                     </div>
                 </ng-template>
 
@@ -346,4 +346,4 @@
     </div>
 </ng-template> -->
 
-<button mat-button (click)="openDialog()">Open dialog</button>
+<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->

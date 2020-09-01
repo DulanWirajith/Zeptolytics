@@ -18,6 +18,7 @@ import {NgApexchartsModule} from "ng-apexcharts";
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ZoomPopupDialogComponent } from 'src/app/modules/zoom-popup-dialog/zoom-popup-dialog.component';
+import {ChartService} from 'src/app/modules/services/chart.service'
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ZoomPopupDialogComponent } from 'src/app/modules/zoom-popup-dialog/zoom
     MatIconModule,
     FormsModule,
     MatDialogModule
-  ]
+  ],
+  providers: [ChartService],
 })
 export class DefaultModule { }

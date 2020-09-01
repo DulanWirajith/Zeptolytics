@@ -253,14 +253,7 @@ export class WidgetBarComponent implements OnInit {
         colors: ['transparent'],
       },
       xaxis: {
-        categories: [
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul'
-        ],
+        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
       },
       yaxis: {
         title: {
@@ -299,6 +292,15 @@ export class WidgetBarComponent implements OnInit {
           .toLocaleLowerCase()
           .match(this.itemName.toLocaleLowerCase());
       });
+      this.dynamicItemTopicsForShared = this.dynamicItemTopicsForShared.filter(
+        (result) => {
+          console.log(result);
+          console.log(this.dynamicItemTopicsForShared);
+          return result
+            .toLocaleLowerCase()
+            .match(this.itemName.toLocaleLowerCase());
+        }
+      );
     } else if (this.itemName == '') {
       this.dynamicItemTopics = [
         'Sales by Location',
@@ -306,6 +308,7 @@ export class WidgetBarComponent implements OnInit {
         'Monthly Sales',
         'Monthly Sales Growth',
       ];
+      this.dynamicItemTopicsForShared = ['Sales Funnel', 'Industry Trends'];
     }
   }
 }

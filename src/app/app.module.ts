@@ -5,16 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
-import {SharedModule} from './shared/shared.module'
+import { SharedModule } from './shared/shared.module';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import {NgApexchartsModule} from "ng-apexcharts";
+import { NgApexchartsModule } from 'ng-apexcharts';
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,9 +22,11 @@ import {NgApexchartsModule} from "ng-apexcharts";
     DefaultModule,
     SharedModule,
     DragDropModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
