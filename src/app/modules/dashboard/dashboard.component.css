@@ -87,12 +87,8 @@
 /* ^_^ */
 
 .dragdrop-list {
-    /* border: 2px solid red; */
-    /* width: 1000px; */
     max-width: 100%;
     min-width: 100%;
-    /* border: solid 1px #ccc; */
-    /* min-height: 300px; */
     background: white;
     overflow: hidden;
     /* flex style */
@@ -101,30 +97,19 @@
     justify-content: space-around;
     flex-flow: wrap;
     align-items: flex-start;
-    /* flex-grow: 1;
-    flex-basis: 0; */
-    /* object-fit: cover; */
 }
 
 .dragdrop-box {
     border: 1px solid rgba(218, 165, 32, 0.486);
     margin: 10px 10px;
-    /* min-height: 250px; */
-    /* flex-basis: 30%; */
-    /* max-height: 440px; */
-    /* max-width: 50%; */
-    /* border-right: solid 1px #ccc; */
+    flex-basis: 30%;
     color: rgba(0, 0, 0, 0.87);
     align-items: center;
     justify-content: space-around;
-    /* justify-content: space-between; */
-    /* box-sizing: border-box; */
-    flex: content;
-    background: rgba(255, 255, 255, 0.602);
     font-size: 14px;
-    /* object-fit: cover; */
     box-shadow: 5px 8px #6adb8667;
     border-radius: 15px;
+    flex-grow: 1;
 }
 
 .cdk-drag-preview {
@@ -148,10 +133,5 @@
 .dragdrop-list.cdk-drop-list-dragging .dragdrop-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
-
-/* element.style {
-    width: 450px;
-} */
 
 @media(min-width: 768px) {}
